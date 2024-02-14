@@ -14,7 +14,7 @@ import (
 func StartApp() {
 
 	log.Println("Starting server...")
-
+	log.Println("Hello world")
 	// initialize data source if i need any
 
 	// I would initialize database connection here handler := handlers.NewHandler(db)
