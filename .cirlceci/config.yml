@@ -1,13 +1,13 @@
 version: 2.1
-  workflow:
-    spoon-deploy:
-      jobs:
-      - spoon
+workflows:
+  spoon-deploy:
+    jobs:
+    - spoon
 
-  jobs:
-    spoon:
-      docker:
-        - image: cimg/go:1.22.0
-      steps:
-        - checkout
-        - run: go version
+jobs:
+  spoon:
+    docker:
+      - image: cimg/go:1.22.0
+    steps:
+      - checkout
+      - run: go version
