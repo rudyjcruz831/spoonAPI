@@ -106,4 +106,4 @@ sudo apt-get update
 ```
 
 # Cirlce CI
-1. 
+1. Make account
