@@ -11,4 +11,9 @@ jobs:
       - image: cimg/go:1.22.0
     steps:
       - checkout
-      - run: go version
+      - run:
+          name: Install Dependencies
+          command: go mod tidy
+      - run: 
+          name: Run Test
+          command: go test ./handler
