@@ -1,9 +1,9 @@
 version: 2.1
 
-workflow:
+workflows:
   spoon-deploy:
     jobs:
-     - spoon
+    - spoon
 
 jobs:
   spoon:
