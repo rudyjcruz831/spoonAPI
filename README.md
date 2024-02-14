@@ -2,9 +2,7 @@
  Golang wrapper to spoonacular API 
 
 
-## 
-
-# Introduction
+## Introduction
 
 Welcome to the documentation for wrapper Spoonacular API, a  API built using Golang. This document provides detailed information on how to interact with the API, including endpoints, request methods, request parameters, and response formats.
 
@@ -39,9 +37,9 @@ GET /menu/menuItem
 
 #### Request Example
 
-```http
-  GET /endpoint-path?param1=value1&param2=value2 HTTP/1.1
-  Host: your-api-base-url.com
+``` http
+  GET /api/food/menu/menuItem HTTP/1.1
+  Host: localhost
 
   Response
   Copy code
@@ -53,13 +51,11 @@ GET /menu/menuItem
   Response Codes
   200 OK - Request successful
   400 Bad Request - Invalid request parameters
-  401 Unauthorized - Authentication failure
-  404 Not Found - Resource not found
   500 Internal Server Error - Server error
 
 ```
 
-# Docker
+## Docker
 
 1. Created a dockerfile to run create the image that will run golang code inside a docker container running linux base system.
 
@@ -67,21 +63,23 @@ GET /menu/menuItem
   $ docker build -t [Name of container] ./
 
 3. Spin up container with docker image. I also use an .env file to add enviornment variables to docker container name the container foodapi
+``` bash
   $ docker run -p 50052:50052 -d  --env-file .env foodapi  
-
+```
 4. Make sure you make a name or new tag of image to have correct name as our repo
+``` bash
  $ docker tag foodapi rudyjcruz831/foodapi:v1.0 
-
+```
 5. To added to repohub we need to run a command
  $ docker push rudyjcruz831/foodapi:v1.0
 
- # GCP 
+## GCP 
  
  1. Created an account using san jose state email 
  2. I used GCP console to create a GCP instance
     1. Name, region, zone, 
     2. Most of the setting are default
-    3. Under Firewall i allowed http and https traffic
+    3. Under Firewall I allowed http and https traffic
  3. Then ssh to GCP instance and download docker to VM
     1. Set up Docker's apt repository.
 ```bash 
@@ -99,15 +97,21 @@ echo \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update 
 ```
-```
     2. Install the Docker packages.
 ``` bash 
    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
-# Cirlce CI
+## Cirlce CI
 1. Make account
 2. make ssh keys add the public key to github and added the private key to circleci
   - this part i had trouble figuering it out i am still having trouble with the ssh keys
   - I need to make becasuse I am adding a secretphrase  X - this did not work
-  - I created a second project but made sure I follow the instructions 
+  - I created a second project but made sure I follow the instructions this worked
+3. the config file is attachec to this project under the directory .circleci/
+
+#### Screenshots of circleci
+![image info](./img/Screenshot1.png)
+![image info](./img/Screenshot2.png)
+
+
