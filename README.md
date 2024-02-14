@@ -62,16 +62,20 @@ GET /menu/menuItem
 2. Build the image using the Dockerfile created in last step
   $ docker build -t [Name of container] ./
 
-3. Spin up container with docker image. I also use an .env file to add enviornment variables to docker container name the container foodapi
+3. Spin up container with docker image. I also use an .env file to add enviornment variables to docker container name the container spoonapi
 ``` bash
-  $ docker run -p 50052:50052 -d  --env-file .env foodapi  
+  $ docker run -p 50052:50052 -d  --env-file .env rudyjcruz831/spoonapi  
 ```
+  - Do not forget to create the .env file
 4. Make sure you make a name or new tag of image to have correct name as our repo
 ``` bash
- $ docker tag foodapi rudyjcruz831/foodapi:v1.0 
+ $ docker tag spoonapi rudyjcruz831/spoonapi:v1.0 
 ```
 5. To added to repohub we need to run a command
- $ docker push rudyjcruz831/foodapi:v1.0
+ $ docker push rudyjcruz831/spoonapi:lates
+
+6. Dockerhub image: rudyjcruz831/spoonapi
+
 
 ## GCP 
  
@@ -82,6 +86,16 @@ GET /menu/menuItem
     3. Under Firewall I allowed http and https traffic
  3. Then ssh to GCP instance and download docker to VM
     1. Set up Docker's apt repository.
+
+
+
+## Docker in instance usng apt
+
+1. Run the following command to uninstall all conflicting packages: 
+```bash 
+ for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done
+```
+2. Set up Docker's apt repository.
 ```bash 
     # Add Docker's official GPG key: 
 sudo apt-get update
@@ -102,6 +116,11 @@ sudo apt-get update
    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
+![image info](./img/GCP_Screenshot1.png)
+![image info](./img/GCP_Screenshot2.png)
+
+
+
 ## Cirlce CI
 1. Make account
 2. make ssh keys add the public key to github and added the private key to circleci
@@ -111,7 +130,7 @@ sudo apt-get update
 3. the config file is attachec to this project under the directory .circleci/
 
 #### Screenshots of circleci
-![image info](./img/Screenshot1.png)
-![image info](./img/Screenshot2.png)
+![image info](./img/Circle_Screenshot1.png)
+![image info](./img/Circle_Screenshot2.png)
 
 
