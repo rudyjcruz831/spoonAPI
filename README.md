@@ -108,4 +108,6 @@ sudo apt-get update
 # Cirlce CI
 1. Make account
 2. make ssh keys 
-  - this part i had trouble figuering it out i am still having trouble with the ssh keys 
+  - this part i had trouble figuering it out i am still having trouble with the ssh keys
+  - I need to make becasuse I am adding a secretphrase  X - this did not work
+  - I created a second project but made sure I follow the instructions
