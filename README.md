@@ -12,10 +12,6 @@ The base URL for all API endpoints is:
     localhost:50052/api/food
 
 
-## Error Handling
-
- I need to check error for example if i dont give my correct api secret
-
 ## Endpoints
 
 ### 1. Endpoint Name
@@ -41,12 +37,36 @@ GET /menu/menuItem
   GET /api/food/menu/menuItem HTTP/1.1
   Host: localhost
 
-  Response
-  Copy code
-  {
-    "response_key": "response_value"
-  }
+{
+  "menuItems":
+    [
+      {
+        "id":306187,
+        "title":"Burger",
+        "restaurantChain":"Garfield's Restaurant &  Pub",
+        "image":"https://spoonacular.com/menuItemImages/hamburger.jpg",
+        "imageType":"jpg",
+        "servings":{
+            "totalMenuItems":0,
+            "size":0,
+            "unit":""
+          }
+      },
+      {
+        "id":247615,
+        "title":"Tony's Bodacious Burger w/ Fries, Max",
+        "restaurantChain":"Max & Erma's",
+        "image":"https://spoonacular.com/menuItemImages/hamburger.jpg",
+        "imageType":"jpg",
+        "servings":{
+          "totalMenuItems":0,
+          "size":0,
+          "unit":""
+        }
+      },
+    ]
 
+}
 
   Response Codes
   200 OK - Request successful
@@ -89,7 +109,7 @@ GET /menu/menuItem
 
 
 
-## Docker in instance usng apt
+## Installing and running Docker in GCP instance 
 
 1. Run the following command to uninstall all conflicting packages: 
 ```bash 
@@ -115,6 +135,7 @@ sudo apt-get update
 ``` bash 
    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
+The images below will show how I ran the docker container in the GCP instance
 
 ![image info](./img/GCP_Screenshot1.png)
 ![image info](./img/GCP_Screenshot2.png)
@@ -124,10 +145,7 @@ sudo apt-get update
 ## Cirlce CI
 1. Make account
 2. make ssh keys add the public key to github and added the private key to circleci
-  - this part i had trouble figuering it out i am still having trouble with the ssh keys
-  - I need to make becasuse I am adding a secretphrase  X - this did not work
-  - I created a second project but made sure I follow the instructions this worked
-3. the config file is attachec to this project under the directory .circleci/
+3. the config file is attached to this project under the directory .circleci/
 
 #### Screenshots of circleci
 ![image info](./img/Circle_Screenshot1.png)
